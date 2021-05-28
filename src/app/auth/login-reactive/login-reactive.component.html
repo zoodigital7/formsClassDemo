@@ -1,1 +1,23 @@
-<p>login-reactive works!</p>
+
+<div class="row">
+  <div class="col-12 mt-5 pt-5 mb-5 pb-5 text-center">
+    <form class="form" [formGroup]="form">
+      <h1>Login</h1>
+      <div class="mx-auto form-group row">
+        <div class="d-inline-flex">
+          <label class="flex label">Email</label>
+          <input class="form-control flex ml-4" type="email" formControlName="email" placeholder="Enter your email" />
+          <div *ngIf="hasError && form && form.get('email') && form.get('email').hasError" class="text-danger">
+            <p>You must enter your email address!!</p>
+          </div>
+        </div>
+        <div *ngIf="errorMsg" class="w-100 mt-2 mb-2">
+          <p class="text-danger">{{errorMsg}}</p>
+        </div>
+        <div class="w-100 mt-2 pt-2">
+          <button class="btn btn-primary" (click)="login()">Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

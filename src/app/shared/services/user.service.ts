@@ -30,13 +30,16 @@ export class UserService {
     this.currentUserSubject.next(user)
   }
 
-  login(params) {
+  login(params): Observable<any> {
     const foundUser = this.usersList.find(x => x.email === params.email)
+    debugger
     if (foundUser) {
       this.storage.setItem('currentUser', foundUser)
       return of(foundUser)
     } else {
-      throwError({success: false, errorMsg: 'Could not find that user'})
+      this.storage.setItem('currentUser', null)
+      this.storage.removeItem('currentUser')
+      return of(throwError({success: false, errorMsg: 'Could not find that user'}))
     }
   }
 

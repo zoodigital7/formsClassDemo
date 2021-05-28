@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Signer } from 'crypto';
 import { LoginReactiveComponent } from './auth/login-reactive/login-reactive.component';
 import { LoginTdComponent } from './auth/login-td/login-td.component';
 import { SignupReactiveComponent } from './auth/signup-reactive/signup-reactive.component';
@@ -9,12 +8,12 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component'
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login-td', component: LoginTdComponent },
   { path: 'login-reactive', component: LoginReactiveComponent },
   { path: 'signup-td', component: SignupTdComponent },
-  { path: 'signup-reacitve', component: SignupReactiveComponent },
+  { path: 'signup-reactive', component: SignupReactiveComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];
 
